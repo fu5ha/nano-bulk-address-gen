@@ -1,5 +1,5 @@
 // VARIABLES: SET THESE BEFORE RUNNING
-const seed = '73AB0EAB3FEB84FE3FD536E53244D510A25CD363E22B33602848D3FDCA50C57F'
+const seed = 'FE9C44BE1C2ACC7CB419D3B7361509C038F0444532F80219F2F1B04631960426'
 const maxIndex = 30
 const addressToCheckAgainst = '' // If you have a known address you want to check results for. If you don't add one, will spit out the address for all generated accounts. If you do, will only spit out the index of the matching account if found.
 
@@ -22,6 +22,7 @@ if (check) {
   console.log('[index] [generated address] \\n')
 }
 const seedBytes = new Uint8Array(hexToArraryBuffer(seed))
+console.time('Finished in')
 for (let i = 0; i <= maxIndex; i++) {
   let keypair = deriveKeypair(seedBytes, i)
   if (check) {
@@ -37,6 +38,7 @@ for (let i = 0; i <= maxIndex; i++) {
     console.log(`No match found in ${maxIndex} indexes!`)
   }
 }
+console.timeEnd('Finished in')
 
 const stringFromHex = function (hex) {
   var hex = hex.toString() // force conversion
@@ -140,7 +142,7 @@ function equal_arrays (array1, array2) {
 function deriveKeypair (seedBytes, index) {
   let i_bytes = new Uint8Array(hexToArraryBuffer(dec2hex(index, 4)))
   let ctx = blake.blake2bInit(32);
-  blake.blake2bUpdate(ctx, seed);
+  blake.blake2bUpdate(ctx, seedBytes);
   blake.blake2bUpdate(ctx, i_bytes);
   let prv = blake.blake2bFinal(ctx);
 
