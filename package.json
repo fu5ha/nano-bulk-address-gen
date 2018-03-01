@@ -1,0 +1,12 @@
+{
+  "name": "nano_address_bulk_gen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "array-buffer-to-hex": "^1.0.0",
+    "hex-to-array-buffer": "^1.1.0",
+    "nano-base32": "^1.0.0",
+    "tweetnacl": "git+https://github.com/jaimehgb/tweetnacl-js.git#ef9ea5fd95c3ca98128877c58e40ef1a711421ef"
+  }
+}
