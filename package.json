@@ -1,5 +1,5 @@
 {
-  "name": "nano_address_bulk_gen",
+  "name": "nano-bulk-address-gen",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
